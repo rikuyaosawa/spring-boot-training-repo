@@ -1,0 +1,4 @@
+Thymeleaf Expressions
+
+- Variable Expression ${...} 	: Executes on a model attribute in some way
+- Selection Expression *{field} : Selects a field from a previously bound object
