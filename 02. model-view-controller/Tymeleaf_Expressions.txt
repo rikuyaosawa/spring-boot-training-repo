@@ -2,3 +2,20 @@ Thymeleaf Expressions
 
 - Variable Expression ${...} 	: Executes on a model attribute in some way
 - Selection Expression *{field} : Selects a field from a previously bound object
+
+Thymeleaf Conditionals
+
+- th:if : renders an element IF condition is true
+- th:unless: renders an element IF condition is false
+- ternary operator : if, unless in one line
+	th:text=${condition ? if true : if not true} 
+
+- th:switch : compares a value against a list of cases
+	    : renders the case match
+	Example:
+	        <div th:switch="${product}">
+        	    <p th:case="chair">50</p>
+                    <p th:case="tv">150</p>
+            	    <p th:case="table">100</p>
+            	    <p th:case="*">No match</p>
+        	</div>
