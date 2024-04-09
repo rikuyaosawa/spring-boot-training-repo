@@ -2,11 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Tabs</title>
+        <link th:href="@{/stylesheet.css}" rel="stylesheet">
     </head>
     <body>
         <div>
-            <a>Home</a>
-            <a>Away</a>
+            <a th:href="@{/}">Home</a>
+            <a th:href="@{/away}">Away</a>
         </div>
         <div>
             <h1>HOME</h1>
