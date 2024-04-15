@@ -6,11 +6,14 @@ public class Grade {
 	private String subject;
 	private String score;
 
-
 	public Grade(String student, String subject, String score) {
 		this.student = student;
 		this.subject = subject;
 		this.score = score;
+	}
+
+	public Grade() {
+
 	}
 
 	public String getStudent() {
@@ -37,4 +40,12 @@ public class Grade {
 		this.score = score;
 	}
 
+	@Override
+	public String toString() {
+		return "{" +
+			" student='" + getStudent() + "'" +
+			", subject='" + getSubject() + "'" +
+			", score='" + getScore() + "'" +
+			"}";
+	}
 }
