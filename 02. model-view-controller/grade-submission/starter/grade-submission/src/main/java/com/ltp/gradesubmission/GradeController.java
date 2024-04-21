@@ -33,30 +33,37 @@ public class GradeController {
 	}
 
 	@GetMapping("/form")
-	public String gradeForm(Model model, @RequestParam(required = false) String student) {
-		int index = getGradeIndex(student);
+	public String gradeForm(Model model, @RequestParam(required = false) String id) {
+		int index = getGradeIndex(id);
+		System.out.println(index);
 		model.addAttribute(
-			"grade", index == -1000 ? new Grade() : studentGrades.get(index));
+			"grade", index == Constants.NOT_FOUND ? new Grade() : studentGrades.get(index));
 		return "form";
 	}
 
 	@PostMapping("/handleSubmit")
 	public String submitGrade(Grade grade) {
-		int index = getGradeIndex(grade.getStudent());
-		if (index == -1000) {
+		int index = getGradeIndex(grade.getId());
+		if (index == Constants.NOT_FOUND) {
 			studentGrades.add(grade);
 		} else {
 			studentGrades.set(index, grade);
 		}
+		System.out.println(studentGrades);
 		return "redirect:/grades";
 	}
 	
-	public Integer getGradeIndex(String student) {
+	public Integer getGradeIndex(String id) {
+		System.out.println(studentGrades);
+		System.out.println(id);
 		for (int i = 0; i < studentGrades.size(); i++) {
-			if (studentGrades.get(i).getStudent() == student) return i;
+			String chosenStudent = studentGrades.get(i).getId();
+			if (chosenStudent.equals(id)) {
+				return i;
+			}
 		}
 		// could not find the student
-		return -1000;
+		return Constants.NOT_FOUND;
 	}
 
 }

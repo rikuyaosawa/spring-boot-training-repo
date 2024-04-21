@@ -1,10 +1,13 @@
 package com.ltp.gradesubmission;
 
+import java.util.UUID;
+
 public class Grade {
 
 	private String student;
 	private String subject;
 	private String score;
+	private String id;
 
 	public Grade(String student, String subject, String score) {
 		this.student = student;
@@ -13,7 +16,7 @@ public class Grade {
 	}
 
 	public Grade() {
-
+		this.id = UUID.randomUUID().toString();
 	}
 
 	public String getStudent() {
@@ -39,6 +42,15 @@ public class Grade {
 	public void setScore(String score) {
 		this.score = score;
 	}
+
+	public String getId() {
+		return this.id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 
 	@Override
 	public String toString() {
