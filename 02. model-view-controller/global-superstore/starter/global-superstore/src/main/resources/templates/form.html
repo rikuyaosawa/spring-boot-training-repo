@@ -10,9 +10,11 @@
         <div class="container">    
             <h2> Global Superstore </h2>
             <form method="post">
-                <select class="select">
-                    <option style="color:blue">Choose Category</option>
-                    <option> Placeholder </option>
+                <select class="select" th:each="category : ${categories}">
+                    <option th:text="category" style="color:blue">Choose Category</option>
+                    <option th:text="category" th:value="category">Furniture</option>
+                    <option th:text="category" th:value="category">Office Supplies</option>
+                    <option th:text="category" th:value="category">Technology</option>
                 </select>
                 <input type="text" placeholder="Name">
                 <input class="half" type="text" placeholder="Price">
